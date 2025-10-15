@@ -1,2 +1,2 @@
 # Labubu-Tracker
-A basic implementation of YOLOV11 Instance Segmentation!
+This is a barebones implementation of YOLOV11's Instance Segmentation algorithm.

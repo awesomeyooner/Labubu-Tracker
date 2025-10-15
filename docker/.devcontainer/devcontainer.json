@@ -1,0 +1,41 @@
+{
+    "name": "Instance Segmentation", //CHANGE ME
+    // "image": "omnipotence:noetic",
+    "build": {
+        "dockerfile": "Dockerfile", // Path to your Dockerfile
+        "options": [
+            "-t=instance_seg:0.0.0" //CHANGE ME
+        ],
+        "args": {
+            "USERNAME": "user",
+            "PASSWORD": "041825"
+        }
+    },
+    "workspaceFolder": "/home/user",
+    "remoteUser": "user",
+    "mounts": [
+        "source=${localWorkspaceFolder}/Documents,target=/home/user/Documents,type=bind,consistency=cached"
+    ],
+    "runArgs": [
+        "--env=DISPLAY=${localEnv:DISPLAY}",
+        "--env", "LIBGL_ALWAYS_INDIRECT=0",
+        "--volume", "/tmp/.X11-unix:/tmp/.X11-unix",
+        "--volume", "/dev/dri:/dev/dri",
+        "--gpus", "all",
+        "--network=host",
+        "--hostname", "container",
+        "--name", "my_container", //CHANGE ME
+        "--device", "/dev/video0:/dev/video0",
+        "--rm"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.isort",
+                "ms-python.debugpy"
+            ]
+        }
+    }
+}
